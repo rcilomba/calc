@@ -1,15 +1,19 @@
-function add(){
+function add(firstNumber, secondNumber){
+    return firstNumber + secondNumber;
 
 }
 
-function substract(){
+function substract(firstNumber, secondNumber){
+    return firstNumber - secondNumber;
     
 }
 
-function multiply(){
+function multiply(firstNumber, secondNumber){
+    return firstNumber * secondNumber;
     
 }
 
-function divide(){
+function divide(firstNumber, secondNumber){
+    return firstNumber / secondNumber;
     
 }
