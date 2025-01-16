@@ -1,25 +1,29 @@
 let firstNumber;
 let secondNumber;
-let operate;
+let operator;
+
+// const one = document.querySelector("#one");
+const calcContainer = document.querySelector(".calc-container");
+calcContainer.addEventListener("click",(e) => {
+    console.log(e.target);
+})
+
+
 
 function add(firstNumber, secondNumber){
     return firstNumber + secondNumber;
-
 }
 
 function subtract(firstNumber, secondNumber){
     return firstNumber - secondNumber;
-    
 }
 
 function multiply(firstNumber, secondNumber){
     return firstNumber * secondNumber;
-    
 }
 
 function divide(firstNumber, secondNumber){
-    return firstNumber / secondNumber;
-    
+    return firstNumber / secondNumber; 
 }
 
 function operate(firstNumber, operator, secondNumber){
