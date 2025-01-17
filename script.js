@@ -2,10 +2,18 @@ let firstNumber;
 let secondNumber;
 let operator;
 
-// const one = document.querySelector("#one");
+let display = document.querySelector(".display");
+console.log("display", display)
+
 const calcContainer = document.querySelector(".calc-container");
 calcContainer.addEventListener("click",(e) => {
-    console.log(e.target);
+    console.log(e.target.dataset.value);
+ const numberValue = e.target.dataset.value;
+display.innerHTML = numberValue;
+
+
+   
+    
 })
 
 
