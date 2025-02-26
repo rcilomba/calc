@@ -1,26 +1,26 @@
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
-let equal = document.querySelector()
+let equal = document.querySelector(".equal")
+
 
 
 let display = document.querySelector(".display");
 
 const calcContainer = document.querySelector(".calc-container");
+
 calcContainer.addEventListener("click",(e) => {
-    console.log(e.target.dataset.value);
  const numberValue = e.target.dataset.value;
 display.innerHTML = numberValue;
-console.log("numberValue:", numberValue)
+//lagra firstNumber och secondNumber via numberValue
+if(firstNumber === ''){
+    firstNumber = numberValue;
+}
 
-
-
-
-
- 
-
-
+console.log("firstNumber:", firstNumber)
 })
+
+
 
 
 
