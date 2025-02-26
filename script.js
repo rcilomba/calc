@@ -7,25 +7,43 @@ let equal = document.querySelector(".equal")
 
 let display = document.querySelector(".display");
 
-const calcContainer = document.querySelector(".calc-container");
+const numbers = document.querySelector(".numbers");
 
-calcContainer.addEventListener("click",(e) => {
+numbers.addEventListener("click",(e) => {
  const numberValue = e.target.dataset.value;
-display.innerHTML = numberValue;
+display.innerHTML += numberValue;
 //lagra firstNumber och secondNumber via numberValue
 if(firstNumber === ''){
     firstNumber = numberValue;
+} else if (firstNumber !== '' && operator !== ''){
+    secondNumber = numberValue;
 }
 
-console.log("firstNumber:", firstNumber)
+console.log("first number:", firstNumber, "operator:", operator, "second number:", secondNumber)
+})
+
+const operators = document.querySelector(".operators");
+
+//operator
+operators.addEventListener("click",(e) =>{
+    const operatorValue = e.target.dataset.value;
+    display.innerHTML += "" + operatorValue + "";
+
+    if(operator === ''){
+        operator = operatorValue;
+    }
+    
+    console.log("secondNumber:", secondNumber)
 })
 
 
-
-
-
-
-
+/*
+-första knapp klick: lagra första siffran in firstNumber
+om första klick är ett nummer, lagra i display, annars 
+andra knapp klick: lagra operator i operator
+tredje knapp klick: lagra andra siffran i secondNmber
+fjärde knapp klick : lika med, utför beräkning av firstNumber operator secondNumber
+ */
 
 
 function add(firstNumber, secondNumber){
