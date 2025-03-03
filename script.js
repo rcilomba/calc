@@ -27,7 +27,11 @@ const operators = document.querySelector(".operators");
 //operator
 operators.addEventListener("click",(e) =>{
     const operatorValue = e.target.dataset.value;
-    display.innerHTML += "" + operatorValue + "";
+    if(operatorValue){ // lägger till operator om den har ett värde
+        
+        display.innerHTML += "" + operatorValue + "";
+    }
+    // console.log("operator valiue", operatorValue)
     console.log("display.innerHTML after adding operator:", display.innerHTML);
 
     if (operator === '' && firstNumber !== '') {
