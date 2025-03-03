@@ -12,14 +12,14 @@ const numbers = document.querySelector(".numbers");
 numbers.addEventListener("click",(e) => {
  const numberValue = e.target.dataset.value;
 display.innerHTML += numberValue;
+console.log("display.innerHTML after adding number:", display.innerHTML);
 //lagra firstNumber och secondNumber via numberValue
 if(firstNumber === ''){
     firstNumber = numberValue;
 } else if (firstNumber !== '' && operator !== ''){
-    secondNumber = numberValue;
+    secondNumber += numberValue;
 }
 
-console.log("first number:", firstNumber, "operator:", operator, "second number:", secondNumber)
 })
 
 const operators = document.querySelector(".operators");
@@ -28,22 +28,40 @@ const operators = document.querySelector(".operators");
 operators.addEventListener("click",(e) =>{
     const operatorValue = e.target.dataset.value;
     display.innerHTML += "" + operatorValue + "";
+    console.log("display.innerHTML after adding operator:", display.innerHTML);
 
-    if(operator === ''){
+    if (operator === '' && firstNumber !== '') {
         operator = operatorValue;
+    }  
+    
+    
+})
+equal.addEventListener("click", ()=>{
+
+if (['+', '-', '*', '/'].includes(operator) && secondNumber !== '')
+    {
+    
+
+        let result = operate(Number(firstNumber), operator, Number(secondNumber));
+
+        if (result !== "Error") {
+            console.log("Setting display.innerHTML to:", result);
+            display.innerHTML = result;
+            console.log("display.innerHTML after setting result:", display.innerHTML);
+            firstNumber = result.toString();
+            secondNumber = '';
+            operator = '';
+        } else {
+            display.innerHTML = "Error";
+            console.log("display.innerHTML after setting error:", display.innerHTML);
+        }
+    
     }
     
-    console.log("secondNumber:", secondNumber)
+    
 })
 
 
-/*
--första knapp klick: lagra första siffran in firstNumber
-om första klick är ett nummer, lagra i display, annars 
-andra knapp klick: lagra operator i operator
-tredje knapp klick: lagra andra siffran i secondNmber
-fjärde knapp klick : lika med, utför beräkning av firstNumber operator secondNumber
- */
 
 
 function add(firstNumber, secondNumber){
@@ -63,6 +81,9 @@ function divide(firstNumber, secondNumber){
 }
 
 function operate(firstNumber, operator, secondNumber){
+
+console.log("Operate function called with", firstNumber, operator, secondNumber)
+
     if(operator === "+"){
         return add(firstNumber, secondNumber)
     } else if (operator === "-"){
@@ -72,7 +93,7 @@ function operate(firstNumber, operator, secondNumber){
     } else if(operator === "/"){
         return divide(firstNumber, secondNumber)
     } else {
-    return alert("add correct operator")
+    return "Error";
     }
 
 }
